@@ -90,7 +90,7 @@ public extension UITextField
         }
     }
     
-    public func getjumpOrder()->Int{
+    @objc public func getjumpOrder()->Int{
         return jumpOrder
         //NSNotificationCenter.defaultCenter().postNotificationName("firstResponder.MoveNext", object: jumpOrder + 1)
     }
@@ -109,7 +109,7 @@ public extension UITextView
         }
     }
     
-    public func getjumpOrder()->Int{
+    @objc public func getjumpOrder()->Int{
         return jumpOrder
         //NSNotificationCenter.defaultCenter().postNotificationName("firstResponder.MoveNext", object: jumpOrder + 1)
     }

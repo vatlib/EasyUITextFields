@@ -94,7 +94,7 @@ public extension UITextField
                     }
                 }
                 self.text = self.text! + newText
-                if self.text?.characters.count == formatArray.count{
+                if self.text?.characters.count == formatArray.count {
                     NotificationCenter.default.post(name: Notification.Name(rawValue: "text.MoveNext.Format"), object: nil)
                 }
                 self.sendActions(for: .editingChanged)
