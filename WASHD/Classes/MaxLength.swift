@@ -26,8 +26,8 @@ public extension UITextField
     }
     
     public func reachedMaxLength(_ range:NSRange, string:String)->Bool{
-        let oldLength = self.text!.characters.count
-        let replacementLength = string.characters.count
+        let oldLength = self.text!.count
+        let replacementLength = string.count
         let rangeLength = range.length
         let newLength = oldLength - rangeLength + replacementLength
         
@@ -61,8 +61,8 @@ public extension UITextView
     }
     
     public func reachedMaxLength(_ range:NSRange, string:String)->Bool{
-        let oldLength = self.text!.characters.count
-        let replacementLength = string.characters.count
+        let oldLength = self.text!.count
+        let replacementLength = string.count
         let rangeLength = range.length
         let newLength = oldLength - rangeLength + replacementLength
         

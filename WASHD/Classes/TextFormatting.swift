@@ -32,7 +32,7 @@ public extension UITextField
                     objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
                 )
                 
-                if self.text != nil && self.text!.characters.count > 0{
+                if self.text != nil && self.text!.count > 0{
                     formatChanged(oldFormat)
                 }
 
@@ -56,10 +56,10 @@ public extension UITextField
         //string is the newest character to be added
         if self.format != "" && self.text != nil{
             let backspace = string == ""
-            var textFieldIndex = self.text!.characters.count > 0 ? self.text!.characters.count - 1 : -1
-            var textFieldArray = Array(self.text!.characters)
-            let newStringArray = Array(string.characters)
-            let formatArray = Array(self.format.characters)
+            var textFieldIndex = self.text!.count > 0 ? self.text!.count - 1 : -1
+            var textFieldArray = Array(self.text!)
+            let newStringArray = Array(string)
+            let formatArray = Array(self.format)
             var newText = ""
             if backspace == false{
                 textFieldArray = textFieldArray + newStringArray
@@ -94,7 +94,7 @@ public extension UITextField
                     }
                 }
                 self.text = self.text! + newText
-                if self.text?.characters.count == formatArray.count {
+                if self.text?.count == formatArray.count {
                     NotificationCenter.default.post(name: Notification.Name(rawValue: "text.MoveNext.Format"), object: nil)
                 }
                 self.sendActions(for: .editingChanged)
@@ -144,8 +144,8 @@ public extension UITextField
             textSourceArray = []
             var formatIndex = 0
             var enteredIndex = 0
-            let enteredArray = Array(enteredText!.characters)
-            let formatArray = Array(self.format.characters)
+            let enteredArray = Array(enteredText!)
+            let formatArray = Array(self.format)
             while enteredIndex < enteredArray.count && formatIndex < formatArray.count{
                 if String(formatArray[formatIndex]).lowercased() == "\\"{
                     textSourceArray.append("e")
@@ -180,7 +180,7 @@ public extension UITextField
             return self.text!
         }
         var enteredText = ""
-        let enteredArray = Array(self.text!.characters)
+        let enteredArray = Array(self.text!)
         var userEnteredIndices = [Int]()
         let _ = textSourceArray.enumerated().filter{(index, element) in
             if element == "u"{

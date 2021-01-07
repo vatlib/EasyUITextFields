@@ -174,7 +174,7 @@ open class Validation
     
     func luhnTest(_ number: String) -> Bool{
         let noSpaceNum = number.condensedWhitespace
-        let reversedInts:[Int] = noSpaceNum.characters.reversed().map
+        let reversedInts:[Int] = noSpaceNum.reversed().map
             {
                 Int(String($0))
             }.flatMap { $0 }
